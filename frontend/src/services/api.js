@@ -14,7 +14,12 @@ export async function apiRequest(path, options = {}) {
   } catch {
     throw new ApiError('The HemoTrack API is not reachable. Demo session data remains available.', 0, 'API_UNAVAILABLE')
   }
-  const body = await response.json().catch(() => ({}))
+  if (!response.headers.get('content-type')?.includes('application/json')) {
+    throw new ApiError('The HemoTrack API returned an unexpected response. Demo session data remains available.', response.status, 'INVALID_API_RESPONSE')
+  }
+  const body = await response.json().catch(() => {
+    throw new ApiError('The HemoTrack API returned invalid JSON. Demo session data remains available.', response.status, 'INVALID_API_RESPONSE')
+  })
   if (!response.ok) throw new ApiError(body.error?.message || 'The request could not be completed.', response.status, body.error?.code)
   return body.data ?? body
 }
