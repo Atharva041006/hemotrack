@@ -39,6 +39,8 @@ For local development, `SQL_TRUST_SERVER_CERTIFICATE=true` supports a local SQL 
 
 The repository-root [`vercel.json`](vercel.json) installs and builds the React app from `frontend/` and serves client-side routes. Keep Vercel's Root Directory set to the repository root (`.`), then redeploy the `main` branch. The deployed frontend uses the educational demo data unless `VITE_API_URL` points to a publicly reachable backend. A SQL Server instance running only on a personal computer cannot be reached by Vercel; deploy the API and database to reachable hosting before expecting cloud data or saved changes.
 
+To deploy the API and connect a hosted SQL Server database, follow [`docs/Cloud-Deployment.md`](docs/Cloud-Deployment.md). Never commit local `.env` files or place database credentials in Vercel frontend settings.
+
 ## Project structure
 
 - `frontend/` — responsive React/Vite UI, API client, and labeled offline demo fallbacks.

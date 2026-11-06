@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-white: #ffffff;
+  --color-navy: #151b2c;
+  --color-navy-hero-start: #171d30;
+  --color-navy-hero-mid: #20263b;
+  --color-navy-hero-end: #3b1d32;
+  --color-crimson: #d7264d;
+  --color-crimson-soft: #fce8ed;
+  --color-canvas: #f6f8fb;
+  --color-ink: #172033;
+  --color-muted: #64748b;
+  --color-border: #e7eaf0;
+  --color-teal: #0f766e;
+  --color-amber: #d97706;
+  --color-critical: #b42318;
+  --color-neutral-soft: #f1f5f9;
+  --color-neutral-strong: #334155;
+  --color-success: #0f766e;
+  --color-success-soft: #f0fdfa;
+  --color-success-strong: #115e59;
+  --color-warning: #d97706;
+  --color-warning-soft: #fffbeb;
+  --color-warning-strong: #92400e;
+  --color-critical-soft: #fef2f2;
+  --color-info: #2563eb;
+  --color-info-soft: #eff6ff;
+  --color-info-strong: #1e40af;
+  --color-violet: #7c3aed;
+  --color-violet-soft: #f5f3ff;
+  --color-chart-grid: #e7eaf0;
+  --color-chart-muted: #64748b;
+  --color-chart-light: #94a3b8;
+  --color-chart-cursor: #f6f8fb;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --text-page-title: 1.5rem;
+  --text-page-title--line-height: 2rem;
+  --text-page-title-lg: 1.75rem;
+  --text-page-title-lg--line-height: 2.25rem;
+  --text-section-heading: 1rem;
+  --text-section-heading--line-height: 1.5rem;
+  --text-card-heading: 0.875rem;
+  --text-card-heading--line-height: 1.25rem;
+  --text-body: 0.875rem;
+  --text-body--line-height: 1.25rem;
+  --text-supporting: 0.75rem;
+  --text-supporting--line-height: 1rem;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1rem;
+  --text-table: 0.875rem;
+  --text-table--line-height: 1.25rem;
+  --text-meta: 0.6875rem;
+  --text-meta--line-height: 1rem;
+  --radius-card: 1rem;
+  --radius-control: 0.5rem;
+  --shadow-card: 0 2px 8px rgb(21 27 44 / 4%), 0 1px 2px rgb(21 27 44 / 3%);
+  --shadow-hero: 0 18px 45px -25px rgb(21 27 44 / 65%);
+  --spacing-page: 2.5rem;
+  --spacing-section: 2rem;
+  --spacing-page-mobile: 1rem;
+  --spacing-page-tablet: 2rem;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: radial-gradient(ellipse at 85% 5%, color-mix(in srgb, var(--color-crimson) 4%, transparent), transparent 26rem), var(--color-canvas);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--color-crimson) 22%, transparent);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 3px;
+  box-shadow: var(--focus-ring);
+}
+
+::selection {
+  color: var(--color-white);
+  background: var(--color-crimson);
+}
+
+.dashboard-hero {
+  background: linear-gradient(135deg, var(--color-navy-hero-start), var(--color-navy-hero-mid), var(--color-navy-hero-end));
+  box-shadow: var(--shadow-hero);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
