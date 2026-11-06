@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: hemotrack-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health/live
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SQL_AUTH_MODE
+        value: sql
+      - key: SQL_PORT
+        value: "1433"
+      - key: SQL_ENCRYPT
+        value: "true"
+      - key: SQL_TRUST_SERVER_CERTIFICATE
+        value: "false"
+      - key: SQL_SERVER
+        sync: false
+      - key: SQL_DATABASE
+        sync: false
+      - key: SQL_USER
+        sync: false
+      - key: SQL_PASSWORD
+        sync: false
+      - key: FRONTEND_ORIGINS
+        sync: false
